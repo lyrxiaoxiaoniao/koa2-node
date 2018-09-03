@@ -17,16 +17,6 @@ app.use(async (ctx, next) => {
   console.log(`Process ${ctx.request.method} ${ctx.request.url} ${new Date()}...`)
   await next()
 })
-// app.use(async (ctx, next) => {
-//   if (
-//     ctx.request.header.origin !== ctx.origin &&
-//     whiteList.includes(ctx.request.header.origin)
-//   ) {
-//     ctx.set('Access-Control-Allow-Origin', ctx.request.header.origin)
-//     ctx.set('Access-Control-Allow-Credentials', true)
-//   }
-//   await next()
-// })
 
 app.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
@@ -46,5 +36,5 @@ app.use(bodyParser())
 // add controllers:
 app.use(controller())
 
-app.listen(3001)
+app.listen(3000)
 console.log('app started at port 3000...')
